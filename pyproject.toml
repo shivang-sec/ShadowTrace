@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=72"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "shadowtrace"
+version = "1.0.0"
+description = "Network Exposure Intelligence Engine — local-first security assessment framework"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+keywords = ["security", "network", "nmap", "vulnerability", "cve", "assessment"]
+
+dependencies = [
+    "python-nmap>=0.7.1",
+    "requests>=2.32.0",
+    "rich>=13.0.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+]
+
+[project.scripts]
+shadowtrace = "shadowtrace.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["shadowtrace*", "api*"]
